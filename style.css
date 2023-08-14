@@ -13,15 +13,49 @@
 .container {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: 1fr 2fr;
 }
 
 .header {
   display: grid;
+  padding-top: 10px;
+  padding-bottom: 10px;
   grid-template-columns: 1fr 1fr;
   background-color: whitesmoke;
 }
 
-.button {
+#title {
+  font-size: 50px;
+  padding-left: 10px;
+  align-self: center;
+}
+
+#add {
+  font-size: 20px;
   text-align: end;
+  padding-right: 20px;
+  align-self: center;
+}
+
+#shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.popup {
+  width: 400px;
+  position: absolute;
+  background: #fff;
+  border-radius: 6px;
+  text-align: center;
+  top: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s, top 0.4s;
+  visibility: hidden;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
