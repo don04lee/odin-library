@@ -8,6 +8,7 @@
   margin: 0;
   height: 100%;
   font-family: bricolage;
+  user-select: none;
 }
 
 .container {
@@ -40,6 +41,10 @@
 #shelf {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.button:hover {
+  color: pink;
 }
 
 .popup {
