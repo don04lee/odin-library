@@ -1,0 +1,27 @@
+@font-face {
+  font-family: bricolage;
+  src: url(/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf);
+}
+
+:root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: bricolage;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: whitesmoke;
+}
+
+.button {
+  text-align: end;
+}
