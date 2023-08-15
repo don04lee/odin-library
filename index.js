@@ -1,3 +1,4 @@
+// framework of the page
 let shelf = document.getElementById('shelf');
 let newButton = document.getElementById('button');
 let popup = document.getElementById('popup');
@@ -10,7 +11,6 @@ let read = document.getElementById('read');
 let submit = document.getElementById('submit');
 
 let myLibrary = [];
-
 let libraryDiv = document.createElement('div');
 
 // addEventListener for submit form
@@ -72,22 +72,29 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 
   let card = document.createElement('div');
-  card.classList.add('card');
-  shelf.appendChild(card);
-
-  let title = document.createElement('p');
-  title.textContent = book.getTitle;
-  card.appendChild(title);
-
+  let title = document.createElement('h2');
   let author = document.createElement('p');
-  author.textContent = book.getAuthor;
-  card.appendChild(author);
-
   let pages = document.createElement('p');
-  pages.textContent = book.getPages;
-  card.appendChild(pages);
-
   let read = document.createElement('div');
+  let removeButton = document.createElement('div');
+
+  shelf.appendChild(card);
+  card.appendChild(title);
+  card.appendChild(author);
+  card.appendChild(pages);
+  card.appendChild(read);
+  card.appendChild(removeButton);
+
+  title.textContent = book.getTitle;
+  author.textContent = book.getAuthor;
+  pages.textContent = book.getPages;
+  removeButton.textContent = "Remove";
+
+  card.classList.add('card');
+  read.classList.add('cardButton');
+  read.classList.add('readButton');
+  removeButton.classList.add('cardButton');
+
   if(book.getRead) {
     read.classList.toggle('bookRead');
     read.textContent = "Read";
@@ -95,9 +102,6 @@ function addBookToLibrary(book) {
   else {
     read.textContent = "Not Read";
   }
-  read.classList.add('cardButton');
-  read.classList.add('readButton');
-  card.appendChild(read);
 
   // toggles the read status when clicked
   read.addEventListener('click', function() {
@@ -111,11 +115,6 @@ function addBookToLibrary(book) {
 
     book.setRead(!book.getRead);
   });
-
-  let removeButton = document.createElement('div');
-  removeButton.textContent = "Remove";
-  removeButton.classList.add('cardButton');
-  card.appendChild(removeButton);
 
   // removes item from division and library
   removeButton.addEventListener('click', function() {

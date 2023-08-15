@@ -126,7 +126,7 @@ input:focus {
   border-radius: 15px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 .cardButton {
