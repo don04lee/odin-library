@@ -70,7 +70,7 @@ Book.prototype.setRead = function(e) {
 
 function addBookToLibrary(book) {
   myLibrary.push(book);
-  console.log(myLibrary);
+
   let card = document.createElement('div');
   card.classList.add('card');
   shelf.appendChild(card);
@@ -116,4 +116,10 @@ function addBookToLibrary(book) {
   removeButton.textContent = "Remove";
   removeButton.classList.add('cardButton');
   card.appendChild(removeButton);
+
+  // removes item from division and library
+  removeButton.addEventListener('click', function() {
+    myLibrary.filter(el => el.getTitle !== title.textContent);
+    shelf.removeChild(card);
+  });
 }
