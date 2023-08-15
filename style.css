@@ -145,10 +145,10 @@ input:focus {
   border-color:#fb7185;
 }
 
-.bookRead {
-  background-color: aquamarine;
+.readButton {
+  background-color:#fb7185;
 }
 
-.bookNotRead {
-  background-color: #f43f5e;
+.bookRead {
+  background-color: aquamarine;
 }

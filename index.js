@@ -44,6 +44,7 @@ function Book(name, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.index = myLibrary.length;
 }
 
 // creating getters for book
@@ -62,8 +63,14 @@ Book.prototype = {
   },
 }
 
+// setter for toggling read
+Book.prototype.setRead = function(e) {
+  this.read = e;
+}
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  console.log(myLibrary);
   let card = document.createElement('div');
   card.classList.add('card');
   shelf.appendChild(card);
@@ -82,15 +89,28 @@ function addBookToLibrary(book) {
 
   let read = document.createElement('div');
   if(book.getRead) {
-    read.classList.add('bookRead');
+    read.classList.toggle('bookRead');
     read.textContent = "Read";
   }
   else {
-    read.classList.add('bookNotRead');
     read.textContent = "Not Read";
   }
   read.classList.add('cardButton');
+  read.classList.add('readButton');
   card.appendChild(read);
+
+  // toggles the read status when clicked
+  read.addEventListener('click', function() {
+    read.classList.toggle('bookRead');
+    if(book.getRead) {
+      read.textContent = "Not Read";
+    }
+    else {
+      read.textContent = "Read";
+    }
+
+    book.setRead(!book.getRead);
+  });
 
   let removeButton = document.createElement('div');
   removeButton.textContent = "Remove";
