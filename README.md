@@ -1,4 +1,4 @@
-Library App
+# Library App
 
 This is my solution to the Odin Project's library project. This project utilizes object-oriented programming specifically with the usage of JS.
 
