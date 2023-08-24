@@ -39,33 +39,37 @@ function validate(e) {
 }
 
 // constructor of book
-function Book(name, author, pages, read) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.index = myLibrary.length;
-}
+class Book {
+  constructor(name, author, pages, read) {
+    this._name = name;
+    this._author = author;
+    this._pages = pages;
+    this._read = read;
+    this._index = myLibrary.length;
+  }
 
-// creating getters for book
-Book.prototype = {
-  get getTitle() {
-    return this.name;
-  },
-  get getAuthor() {
-    return this.author;
-  },
-  get getPages() {
-    return this.pages;
-  },
-  get getRead() {
-    return this.read;
-  },
-}
+  // getters for book
+  get title() {
+    return this._name;
+  }
 
-// setter for toggling read
-Book.prototype.setRead = function(e) {
-  this.read = e;
+  get author() {
+    return this._author;
+  }
+
+  get pages() {
+    return this._pages;
+  }
+
+  get read() {
+    return this._read;
+  }
+
+  // setters for book
+
+  set read(e) {
+    this._read = e;
+  }
 }
 
 function addBookToLibrary(book) {
@@ -85,9 +89,9 @@ function addBookToLibrary(book) {
   card.appendChild(read);
   card.appendChild(removeButton);
 
-  title.textContent = book.getTitle;
-  author.textContent = book.getAuthor;
-  pages.textContent = book.getPages;
+  title.textContent = book.title;
+  author.textContent = book.author;
+  pages.textContent = book.pages;
   removeButton.textContent = "Remove";
 
   card.classList.add('card');
@@ -106,14 +110,14 @@ function addBookToLibrary(book) {
   // toggles the read status when clicked
   read.addEventListener('click', function() {
     read.classList.toggle('bookRead');
-    if(book.getRead) {
+    if(book.read) {
       read.textContent = "Not Read";
     }
     else {
       read.textContent = "Read";
     }
 
-    book.setRead(!book.getRead);
+    book.read = !book.read;
   });
 
   // removes item from division and library
